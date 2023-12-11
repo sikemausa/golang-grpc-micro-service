@@ -1,7 +1,8 @@
-package v1
+package handler
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/sikemausa/micro-service-example/internal/domain"
 	"github.com/sikemausa/micro-service-example/internal/service"
@@ -39,6 +40,7 @@ func (s *UserServiceServer) CreateUser(ctx context.Context, req *proto.CreateUse
 }
 
 func (s *UserServiceServer) GetUser(ctx context.Context, req *proto.GetUserRequest) (*proto.UserResponse, error) {
+	fmt.Println("GetUser")
 	user, err := s.service.Get(ctx, req.Id)
 	if err != nil {
 		return nil, err

@@ -20,7 +20,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// User model
 type User struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -84,7 +83,6 @@ func (x *User) GetEmail() string {
 	return ""
 }
 
-// Create user request
 type CreateUserRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -140,7 +138,6 @@ func (x *CreateUserRequest) GetEmail() string {
 	return ""
 }
 
-// Get user request
 type GetUserRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -188,7 +185,6 @@ func (x *GetUserRequest) GetId() string {
 	return ""
 }
 
-// Update user request
 type UpdateUserRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -244,7 +240,6 @@ func (x *UpdateUserRequest) GetUser() *User {
 	return nil
 }
 
-// Delete user request
 type DeleteUserRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -292,7 +287,6 @@ func (x *DeleteUserRequest) GetId() string {
 	return ""
 }
 
-// User response
 type UserResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -340,7 +334,6 @@ func (x *UserResponse) GetUser() *User {
 	return nil
 }
 
-// Delete user response
 type DeleteUserResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

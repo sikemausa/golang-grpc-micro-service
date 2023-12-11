@@ -10,7 +10,7 @@ import (
 	"log"
 	"net"
 
-	v1 "github.com/sikemausa/micro-service-example/api/v1"
+	"github.com/sikemausa/micro-service-example/internal/handler"
 	"github.com/sikemausa/micro-service-example/internal/repository/postgres"
 	"github.com/sikemausa/micro-service-example/internal/service"
 	"github.com/sikemausa/micro-service-example/pkg/proto"
@@ -47,7 +47,7 @@ func main() {
 	}
 	grpcServer := grpc.NewServer()
 
-	proto.RegisterUserServiceServer(grpcServer, v1.NewUserServiceServer(userService))
+	proto.RegisterUserServiceServer(grpcServer, handler.NewUserServiceServer(userService))
 
 	reflection.Register(grpcServer)
 
