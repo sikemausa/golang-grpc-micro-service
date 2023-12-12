@@ -6,7 +6,7 @@ import (
 
 	"github.com/sikemausa/micro-service-example/internal/domain"
 	"github.com/sikemausa/micro-service-example/internal/service"
-	"github.com/sikemausa/micro-service-example/pkg/proto"
+	"github.com/sikemausa/micro-service-example/pkg/proto/v1"
 )
 
 type UserServiceServer struct {
