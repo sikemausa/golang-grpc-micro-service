@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pb.v1;
 
-option go_package = "github.com/sikemausa/micro-service-example/pkg/user_v1";
+option go_package = "github.com/sikemausa/micro-service-example/pb/v1";
 
 service UserService {
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);

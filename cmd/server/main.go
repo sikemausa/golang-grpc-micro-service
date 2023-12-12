@@ -18,7 +18,7 @@ import (
 	"github.com/sikemausa/micro-service-example/internal/handler"
 	"github.com/sikemausa/micro-service-example/internal/repository/postgres"
 	"github.com/sikemausa/micro-service-example/internal/service"
-	user_v1 "github.com/sikemausa/micro-service-example/pb/v1"
+	"github.com/sikemausa/micro-service-example/pb/v1"
 	"google.golang.org/grpc"
 )
 
@@ -52,7 +52,7 @@ func main() {
 	}
 	grpcServer := grpc.NewServer()
 
-	user_v1.RegisterUserServiceServer(grpcServer, handler.NewUserServiceServer(userService))
+	v1.RegisterUserServiceServer(grpcServer, handler.NewUserServiceServer(userService))
 
 	reflection.Register(grpcServer)
 
@@ -77,7 +77,7 @@ func startHTTPServer() error {
 
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-	err := user_v1.RegisterUserServiceHandlerFromEndpoint(ctx, mux, *grpcServerEndpoint, opts)
+	err := v1.RegisterUserServiceHandlerFromEndpoint(ctx, mux, *grpcServerEndpoint, opts)
 	if err != nil {
 		return err
 	}

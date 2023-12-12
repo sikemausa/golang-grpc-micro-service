@@ -11,14 +11,14 @@ import (
 
 type UserServiceServer struct {
 	service *service.UserService
-	user_v1.UnimplementedUserServiceServer
+	v1.UnimplementedUserServiceServer
 }
 
 func NewUserServiceServer(service *service.UserService) *UserServiceServer {
 	return &UserServiceServer{service: service}
 }
 
-func (s *UserServiceServer) CreateUser(ctx context.Context, req *user_v1.CreateUserRequest) (*user_v1.CreateUserResponse, error) {
+func (s *UserServiceServer) CreateUser(ctx context.Context, req *v1.CreateUserRequest) (*v1.CreateUserResponse, error) {
 	user := domain.User{
 		Name:  req.Name,
 		Email: req.Email,
@@ -29,8 +29,8 @@ func (s *UserServiceServer) CreateUser(ctx context.Context, req *user_v1.CreateU
 		return nil, err
 	}
 
-	response := &user_v1.CreateUserResponse{
-		User: &user_v1.User{
+	response := &v1.CreateUserResponse{
+		User: &v1.User{
 			Id:    createdUser.ID,
 			Name:  createdUser.Name,
 			Email: createdUser.Email,
@@ -39,15 +39,15 @@ func (s *UserServiceServer) CreateUser(ctx context.Context, req *user_v1.CreateU
 	return response, nil
 }
 
-func (s *UserServiceServer) GetUser(ctx context.Context, req *user_v1.GetUserRequest) (*user_v1.GetUserResponse, error) {
+func (s *UserServiceServer) GetUser(ctx context.Context, req *v1.GetUserRequest) (*v1.GetUserResponse, error) {
 	fmt.Println("GetUser")
 	user, err := s.service.Get(ctx, req.Id)
 	if err != nil {
 		return nil, err
 	}
 
-	response := &user_v1.GetUserResponse{
-		User: &user_v1.User{
+	response := &v1.GetUserResponse{
+		User: &v1.User{
 			Id:    user.ID,
 			Name:  user.Name,
 			Email: user.Email,
