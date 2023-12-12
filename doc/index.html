@@ -203,6 +203,14 @@
                 </li>
               
                 <li>
+                  <a href="#pb.v1.ListUsersRequest"><span class="badge">M</span>ListUsersRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#pb.v1.ListUsersResponse"><span class="badge">M</span>ListUsersResponse</a>
+                </li>
+              
+                <li>
                   <a href="#pb.v1.UpdateUserRequest"><span class="badge">M</span>UpdateUserRequest</a>
                 </li>
               
@@ -237,7 +245,7 @@
 
       
         <h3 id="pb.v1.CreateUserRequest">CreateUserRequest</h3>
-        <p></p>
+        <p>User Requests</p>
 
         
           <table class="field-table">
@@ -247,14 +255,14 @@
             <tbody>
               
                 <tr>
-                  <td>name</td>
+                  <td>email</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>email</td>
+                  <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -268,7 +276,7 @@
         
       
         <h3 id="pb.v1.CreateUserResponse">CreateUserResponse</h3>
-        <p></p>
+        <p>User Responses</p>
 
         
           <table class="field-table">
@@ -387,6 +395,37 @@
 
         
       
+        <h3 id="pb.v1.ListUsersRequest">ListUsersRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="pb.v1.ListUsersResponse">ListUsersResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>users</td>
+                  <td><a href="#pb.v1.User">User</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="pb.v1.UpdateUserRequest">UpdateUserRequest</h3>
         <p></p>
 
@@ -443,7 +482,7 @@
         
       
         <h3 id="pb.v1.User">User</h3>
-        <p></p>
+        <p>User Model</p>
 
         
           <table class="field-table">
@@ -460,14 +499,14 @@
                 </tr>
               
                 <tr>
-                  <td>name</td>
+                  <td>email</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>email</td>
+                  <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -502,9 +541,23 @@
               </tr>
             
               <tr>
+                <td>DeleteUser</td>
+                <td><a href="#pb.v1.DeleteUserRequest">DeleteUserRequest</a></td>
+                <td><a href="#pb.v1.DeleteUserResponse">DeleteUserResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
                 <td>GetUser</td>
                 <td><a href="#pb.v1.GetUserRequest">GetUserRequest</a></td>
                 <td><a href="#pb.v1.GetUserResponse">GetUserResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListUsers</td>
+                <td><a href="#pb.v1.ListUsersRequest">ListUsersRequest</a></td>
+                <td><a href="#pb.v1.ListUsersResponse">ListUsersResponse</a></td>
                 <td><p></p></td>
               </tr>
             
@@ -515,16 +568,77 @@
                 <td><p></p></td>
               </tr>
             
-              <tr>
-                <td>DeleteUser</td>
-                <td><a href="#pb.v1.DeleteUserRequest">DeleteUserRequest</a></td>
-                <td><a href="#pb.v1.DeleteUserResponse">DeleteUserResponse</a></td>
-                <td><p></p></td>
-              </tr>
-            
           </tbody>
         </table>
 
+        
+          
+          
+          <h4>Methods with HTTP bindings</h4>
+          <table>
+            <thead>
+              <tr>
+                <td>Method Name</td>
+                <td>Method</td>
+                <td>Pattern</td>
+                <td>Body</td>
+              </tr>
+            </thead>
+            <tbody>
+            
+              
+              
+              <tr>
+                <td>CreateUser</td>
+                <td>POST</td>
+                <td>/v1/users</td>
+                <td>*</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeleteUser</td>
+                <td>DELETE</td>
+                <td>/v1/users/{id}</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetUser</td>
+                <td>GET</td>
+                <td>/v1/users/{id}</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>ListUsers</td>
+                <td>GET</td>
+                <td>/v1/users</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateUser</td>
+                <td>PATCH</td>
+                <td>/v1/users/{id}</td>
+                <td>user</td>
+              </tr>
+              
+            
+            </tbody>
+          </table>
+          
         
     
 
