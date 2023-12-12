@@ -46,7 +46,6 @@ message GetUserResponse {
   User user = 1;
 }
 
-
 message DeleteUserResponse {
   string message = 1;
 }
