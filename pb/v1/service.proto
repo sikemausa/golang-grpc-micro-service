@@ -10,7 +10,7 @@ service UserService {
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {
     option (google.api.http) = {
       post: "/v1/users"
-      body: "*"
+      body: "user"
     };
   }
 
