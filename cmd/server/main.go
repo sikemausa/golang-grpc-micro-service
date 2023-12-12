@@ -13,7 +13,7 @@ import (
 	"github.com/sikemausa/micro-service-example/internal/handler"
 	"github.com/sikemausa/micro-service-example/internal/repository/postgres"
 	"github.com/sikemausa/micro-service-example/internal/service"
-	"github.com/sikemausa/micro-service-example/pkg/proto/v1"
+	"github.com/sikemausa/micro-service-example/pkg/proto/user/v1"
 	"google.golang.org/grpc"
 )
 
@@ -47,7 +47,7 @@ func main() {
 	}
 	grpcServer := grpc.NewServer()
 
-	proto.RegisterUserServiceServer(grpcServer, handler.NewUserServiceServer(userService))
+	user_v1.RegisterUserServiceServer(grpcServer, handler.NewUserServiceServer(userService))
 
 	reflection.Register(grpcServer)
 

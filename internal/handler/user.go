@@ -6,19 +6,19 @@ import (
 
 	"github.com/sikemausa/micro-service-example/internal/domain"
 	"github.com/sikemausa/micro-service-example/internal/service"
-	"github.com/sikemausa/micro-service-example/pkg/proto/v1"
+	"github.com/sikemausa/micro-service-example/pkg/proto/user/v1"
 )
 
 type UserServiceServer struct {
 	service *service.UserService
-	proto.UnimplementedUserServiceServer
+	user_v1.UnimplementedUserServiceServer
 }
 
 func NewUserServiceServer(service *service.UserService) *UserServiceServer {
 	return &UserServiceServer{service: service}
 }
 
-func (s *UserServiceServer) CreateUser(ctx context.Context, req *proto.CreateUserRequest) (*proto.UserResponse, error) {
+func (s *UserServiceServer) CreateUser(ctx context.Context, req *user_v1.CreateUserRequest) (*user_v1.CreateUserResponse, error) {
 	user := domain.User{
 		Name:  req.Name,
 		Email: req.Email,
@@ -29,8 +29,8 @@ func (s *UserServiceServer) CreateUser(ctx context.Context, req *proto.CreateUse
 		return nil, err
 	}
 
-	response := &proto.UserResponse{
-		User: &proto.User{
+	response := &user_v1.CreateUserResponse{
+		User: &user_v1.User{
 			Id:    createdUser.ID,
 			Name:  createdUser.Name,
 			Email: createdUser.Email,
@@ -39,15 +39,15 @@ func (s *UserServiceServer) CreateUser(ctx context.Context, req *proto.CreateUse
 	return response, nil
 }
 
-func (s *UserServiceServer) GetUser(ctx context.Context, req *proto.GetUserRequest) (*proto.UserResponse, error) {
+func (s *UserServiceServer) GetUser(ctx context.Context, req *user_v1.GetUserRequest) (*user_v1.GetUserResponse, error) {
 	fmt.Println("GetUser")
 	user, err := s.service.Get(ctx, req.Id)
 	if err != nil {
 		return nil, err
 	}
 
-	response := &proto.UserResponse{
-		User: &proto.User{
+	response := &user_v1.GetUserResponse{
+		User: &user_v1.User{
 			Id:    user.ID,
 			Name:  user.Name,
 			Email: user.Email,
