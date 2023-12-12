@@ -15,9 +15,8 @@ plugins:
       - paths=source_relative
       - generate_unbound_methods=true
   - plugin: openapiv2
-    out: ./
-  - name: doc
-    out: doc
+    out: docs
     opt:
-      - html
-      - index.html
+      - allow_merge=true
+      - merge_file_name=oas
+      - output_format=yaml
