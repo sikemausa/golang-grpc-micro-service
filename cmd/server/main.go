@@ -18,7 +18,7 @@ import (
 	"github.com/sikemausa/micro-service-example/internal/handler"
 	"github.com/sikemausa/micro-service-example/internal/repository/postgres"
 	"github.com/sikemausa/micro-service-example/internal/service"
-	user_v1 "github.com/sikemausa/micro-service-example/pkg/proto/user/v1"
+	user_v1 "github.com/sikemausa/micro-service-example/pb/v1"
 	"google.golang.org/grpc"
 )
 
