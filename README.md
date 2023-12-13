@@ -68,7 +68,8 @@ Running the Server
 ## Interacting with the Service
 
 This section demonstrates how to make requests to the server using both HTTP and gRPC.
-Making HTTP Requests
+
+### Making HTTP Requests
 
 The service exposes HTTP endpoints that can be interacted with using standard HTTP methods. Below are examples of how to interact with these endpoints using curl.
 List Users
@@ -105,11 +106,11 @@ Update User
          -H "Content-Type: application/json" \
          -d '{"email": "newemail@email.com", "name": "Jane Doe"}'
 
-## Making gRPC Requests
+### Making gRPC Requests
 
 To interact with the service using gRPC, you'll need a gRPC client that is compatible with the service's protocol. Below is a general outline of how to make gRPC requests to the service.
 
-### Example gRPC Request
+#### Example gRPC Request
 
 Here's a pseudocode example of how a gRPC client might interact with the service:
 
