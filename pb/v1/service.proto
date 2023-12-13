@@ -3,6 +3,7 @@ syntax = "proto3";
 package pb.v1;
 
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "github.com/sikemausa/micro-service-example/pb/v1";
 
@@ -16,10 +17,32 @@ service UserService {
 
   rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {
     option (google.api.http) = {delete: "/v1/users/{id}"};
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      responses: {
+        key: "404";
+        value: {
+          description: "Returned when the resource does not exist.";
+          schema: {
+            json_schema: {ref: "#/definitions/rpcStatus"}
+          }
+        }
+      }
+    };
   }
 
   rpc GetUser(GetUserRequest) returns (GetUserResponse) {
     option (google.api.http) = {get: "/v1/users/{id}"};
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      responses: {
+        key: "404";
+        value: {
+          description: "Returned when the resource does not exist.";
+          schema: {
+            json_schema: {ref: "#/definitions/rpcStatus"}
+          }
+        }
+      }
+    };
   }
 
   rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {
@@ -30,6 +53,17 @@ service UserService {
     option (google.api.http) = {
       patch: "/v1/users/{id}"
       body: "user"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      responses: {
+        key: "404";
+        value: {
+          description: "Returned when the resource does not exist.";
+          schema: {
+            json_schema: {ref: "#/definitions/rpcStatus"}
+          }
+        }
+      }
     };
   }
 }

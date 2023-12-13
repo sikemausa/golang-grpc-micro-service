@@ -50,6 +50,10 @@ paths:
           description: A successful response.
           schema:
             $ref: '#/definitions/v1GetUserResponse'
+        "404":
+          description: Returned when the resource does not exist.
+          schema:
+            $ref: '#/definitions/rpcStatus'
         default:
           description: An unexpected error response.
           schema:
@@ -68,6 +72,10 @@ paths:
           description: A successful response.
           schema:
             $ref: '#/definitions/v1DeleteUserResponse'
+        "404":
+          description: Returned when the resource does not exist.
+          schema:
+            $ref: '#/definitions/rpcStatus'
         default:
           description: An unexpected error response.
           schema:
@@ -86,6 +94,10 @@ paths:
           description: A successful response.
           schema:
             $ref: '#/definitions/v1UpdateUserResponse'
+        "404":
+          description: Returned when the resource does not exist.
+          schema:
+            $ref: '#/definitions/rpcStatus'
         default:
           description: An unexpected error response.
           schema:
