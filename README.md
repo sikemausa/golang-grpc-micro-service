@@ -1,7 +1,8 @@
 # Golang gRPC Micro-Service
 
 This repository hosts a micro-service developed in Go, utilizing gRPC for efficient and scalable inter-service communication. It's designed to showcase the implementation of a gRPC server and client in Go.
-Features
+
+## Features
 
 - gRPC Server: Implements a gRPC server for handling remote procedure calls.
 - gRPC Client: A client that communicates with the server using gRPC.
@@ -19,7 +20,7 @@ Prerequisites
 - kubectl
 - Docker Desktop
 
-Installation
+## Installation
 
 Clone the Repository
     
