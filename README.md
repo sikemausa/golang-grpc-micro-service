@@ -119,7 +119,7 @@ Here's a pseudocode example of how a gRPC client might interact with the service
         "log"
     
         "google.golang.org/grpc"
-        pb "path/to/your/generated/protobuf"
+        pb "github.com/sikemausa/micro-service-example/pb/v1"
     )
 
     func main() {
