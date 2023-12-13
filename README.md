@@ -11,7 +11,8 @@ This repository hosts a micro-service developed in Go, utilizing gRPC for effici
 ## Getting Started
 
 These instructions will guide you through getting a copy of the project up and running on your local machine for development and testing purposes.
-Prerequisites
+
+### Prerequisites
 
 - Go (Version specified in go.mod)
 - gRPC
@@ -20,7 +21,7 @@ Prerequisites
 - kubectl
 - Docker Desktop
 
-## Installation
+### Installation
 
 Clone the Repository
     
